@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/05d60d5b-cbe3-4f41-8fa5-aa615f130d4b)
+![image](https://github.com/user-attachments/assets/e110a332-88a7-4987-bbe1-ed323f1583e2)
 
 # 🤖 Proyecto: Gestión de Talleres de Formación Profesional
 
