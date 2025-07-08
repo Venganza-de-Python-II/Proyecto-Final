@@ -6,8 +6,6 @@
 
 Desarrollar una aplicación web para gestionar talleres de formación profesional. La aplicación permitirá a estudiantes y administradores gestionar cursos técnicos, capacitaciones prácticas y programas de actualización profesional. Además, se implementará una **API RESTful** para interactuar con los datos de los talleres. El trabajo será realizado en grupos y se debe entregar un prototipo funcional.
 
----
-
 ## 💌 Requisitos funcionales
 
 ### 🔹 Gestión de Talleres de Formación Profesional
@@ -61,6 +59,10 @@ Desarrollar una aplicación web para gestionar talleres de formación profesiona
 * Dividir tareas entre backend, frontend, base de datos y documentación.
 * Usar **Git** para el control de versiones y colaboración.
 * Recomendada la creación de **Pull Requests** y revisión de código.
+
+<div align="left">
+  <img src="https://github.com/user-attachments/assets/3b000f52-7f9c-4e57-9bfc-cb3325033765" width="450">
+</div>
 
 ---
 
