@@ -26,8 +26,10 @@ Desarrollar una aplicación web para gestionar talleres de formación profesiona
 
 * ✅ Registrarse a un taller (solo estudiantes)
   ➔ Inscripción de estudiantes para participar en los talleres de su elección.
-
-![463500560-a3c659ea-1d68-495f-b938-eb8b9f158a9a](https://github.com/user-attachments/assets/ed238b34-bb2c-46b3-9612-315bc792a6e3)
+  
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/4cd9a892-b733-4968-abbc-1894b7e40672" width="600">
+</div>
 
 ---
 
