@@ -89,58 +89,78 @@ Desarrollar una aplicación web para gestionar talleres de formación profesiona
 
 ---
 
-## 👋 Distribución de Tareas
+<h2>📋 Distribución de Tareas del Proyecto</h2>
 
-### ✅ Base de Datos
+<table>
+  <tr>
+    <td>
+      <strong>✅ Base de Datos (MongoDB)</strong><br>
+      <ul>
+        <li>Alec</li>
+        <li>Gil</li>
+        <li>Carlos 2</li>
+      </ul>
+    </td>
+    <td>
+      <strong>✅ Diagramas de Base de Datos</strong><br>
+      <ul>
+        <li>Aaron</li>
+      </ul>
+    </td>
+    <td>
+      <strong>✅ Frontend</strong><br>
+      <ul>
+        <li>Ana</li>
+        <li>Sofia</li>
+        <li>Daniela</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>✅ Backend</strong><br>
+      <ul>
+        <li>Franklin</li>
+        <li>Euris</li>
+        <li>Stewart</li>
+      </ul>
+    </td>
+    <td>
+      <strong>✅ Docker</strong><br>
+      <ul>
+        <li>Diego</li>
+      </ul>
+    </td>
+    <td>
+      <strong>✅ Documentación del Código</strong><br>
+      <ul>
+        <li>Alonso</li>
+        <li>Abel</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>✅ Readme.md</strong><br>
+      <ul>
+        <li>Veronica</li>
+        <li>Carlos Contreras</li>
+      </ul>
+    </td>
+    <td>
+      <strong>✅ Autenticación con JWT</strong><br>
+      <ul>
+        <li>Daniel</li>
+        <li>Esteban</li>
+      </ul>
+    </td>
+    <td>
+      <strong>⚠️ Faltan Asignar</strong><br>
+      <ul>
+        <li>Raul</li>
+        <li>Emilio</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-* Alec
-* Gil
-* Carlos 2
-
-### ✅ Diagramas de base de datos
-
-* Aaron
-
-### ✅ Frontend
-
-* Ana
-* Sofia
-* Daniela
-
-### ✅ Backend
-
-* Franklin
-* Euris
-* Stewart
-
-### ✅ Docker
-
-* Diego
-
-### ✅ Documentación del Código
-
-* Alonso
-* Abel
-
-### ✅ API RESTful
-
-* Franklin
-
-### ✅ JWT Autenticación
-
-* Franklin
-
-### ✅ Readme.md
-
-* Veronica
-* Carlos Contreras
-
-### ✅ Autenticación con JWT
-
-* Daniel
-* Esteban
-
-### ⚠️ Faltan por asignar
-
-* Raul
-* Emilio
