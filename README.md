@@ -105,6 +105,7 @@ Desarrollar una aplicación web para gestionar talleres de formación profesiona
       <strong>✅ Diagramas de Base de Datos</strong><br>
       <ul>
         <li>Aaron</li>
+        <li>Raul</li>
       </ul>
     </td>
     <td>
@@ -129,7 +130,6 @@ Desarrollar una aplicación web para gestionar talleres de formación profesiona
       <strong>✅ Docker</strong><br>
       <ul>
         <li>Diego</li>
-        <li>Raul</li>
       </ul>
     </td>
     <td>
