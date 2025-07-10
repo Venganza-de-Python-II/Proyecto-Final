@@ -98,7 +98,7 @@ Desarrollar una aplicación web para gestionar talleres de formación profesiona
       <ul>
         <li>Alec</li>
         <li>Gil</li>
-        <li>Carlos 2</li>
+        <li>Carlos Callejas</li>
       </ul>
     </td>
     <td>
