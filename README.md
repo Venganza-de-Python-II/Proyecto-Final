@@ -142,7 +142,7 @@ Desarrollar una aplicación web para gestionar talleres de formación profesiona
   </tr>
   <tr>
     <td>
-      <strong>✅ Readme.md</strong><br>
+      <strong>✅ README.md</strong><br>
       <ul>
         <li>Veronica</li>
         <li>Carlos Contreras</li>
