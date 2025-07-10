@@ -153,14 +153,8 @@ Desarrollar una aplicación web para gestionar talleres de formación profesiona
       <ul>
         <li>Daniel</li>
         <li>Esteban</li>
-      </ul>
-    </td>
-    <td>
-      <strong>⚠️ Faltan Asignar</strong><br>
-      <ul>
         <li>Emilio</li>
       </ul>
     </td>
   </tr>
 </table>
-
