@@ -1,3 +1,5 @@
+<img width="1454" height="518" alt="image" src="https://github.com/user-attachments/assets/a6304fe6-63a1-455b-bc81-23a16523f569" />
+
 # Guía de Despliegue - SkillsForge
 
 ## Resumen
@@ -1004,4 +1006,5 @@ echo "✅ Verificación completada"
 
 
 Este documento proporciona una guía completa para el despliegue de SkillForge en diferentes entornos, desde desarrollo hasta producción, incluyendo todas las mejores prácticas de seguridad, monitoreo y escalabilidad.
+
 
