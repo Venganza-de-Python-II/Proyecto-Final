@@ -798,7 +798,7 @@ docker exec -it api-talleres bash
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-## 👥 Autores
+## 👥 Grupo
 
 <table>
   <tr>
