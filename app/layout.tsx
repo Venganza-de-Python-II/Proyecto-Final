@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 /**
  * Layout raíz de la aplicación Next.js
  * Configura las fuentes tipográficas y estructura HTML básica
- * 
+ *
  * @param children - Componentes hijos que se renderizan en cada página
  */
 export default function RootLayout({
@@ -27,8 +27,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
-      <body className={GeistSans.className}>{children}</body>
+    <html lang="es" suppressHydrationWarning>
+      <body className={GeistSans.className} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   )
 }
