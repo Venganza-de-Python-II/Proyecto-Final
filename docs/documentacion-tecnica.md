@@ -1,3 +1,5 @@
+<img width="1454" height="518" alt="image" src="https://github.com/user-attachments/assets/c07ba9b8-f095-4006-9a1e-676f4406275f" />
+
 # Documentación Técnica - Sistema de Gestión de Talleres
 
 ## 📋 Índice
@@ -634,4 +636,5 @@ docker-compose logs -f
 
 **Versión**: 1.0.0  
 **Última actualización**: Agosto 2025
+
 
