@@ -1,3 +1,5 @@
+<img width="1454" height="518" alt="image" src="https://github.com/user-attachments/assets/b2f17080-af80-409f-88ca-64fa8c1f1620" />
+
 # Especificación de API - SkillForge
 
 ## Información General
@@ -802,4 +804,5 @@ curl -X POST http://localhost:5001/workshops \
     "tipo": "curso técnico",
     "cupo": 30
   }'
+
 ```
