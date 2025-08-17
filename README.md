@@ -805,6 +805,71 @@ docker exec -it api-talleres bash
 # Ir a http://localhost:8081 (Mongo Express)
 ```
 
+## 📄 Documentación de types.ts
+Este archivo define los tipos de datos utilizados en el sistema de gestión de talleres, 
+facilitando la validación y el manejo estructurado de la información en TypeScript.
+#### 🔹 Tipo: Inscripción
+Este tipo se utiliza para almacenar y manipular los datos relacionados con cada registro.
+
+```bash
+export type Inscripcion = {
+  /** ID único del estudiante inscrito (opcional) */
+  estudiante_id?: string
+
+  /** Nombre completo del estudiante */
+  nombre: string
+
+  /** Correo electrónico del estudiante */
+  email: string
+
+  /** Fecha y hora de registro en formato ISO (opcional) */
+  registrado_en?: string
+}
+```
+
+<table>
+  <tr>
+    <td>
+      <strong>✔️ Inscripción</strong><br />
+      <ul>
+        <li>estudiante_id (opcional)</li>
+        <li>nombre</li>
+        <li>email</li>
+        <li>registrado_en (opcional)</li>
+      </ul>
+    </td>
+    <td>
+      <strong>✔️ Taller</strong><br />
+      <ul>
+        <li>_id</li>
+        <li>nombre</li>
+        <li>descripcion</li>
+        <li>fecha</li>
+        <li>hora</li>
+        <li>lugar</li>
+        <li>categoria</li>
+        <li>tipo</li>
+        <li>instructor (opcional)</li>
+        <li>rating (opcional)</li>
+        <li>cupo</li>
+        <li>cupos_disponibles (opcional)</li>
+        <li>creado_en (opcional)</li>
+        <li>actualizado_en (opcional)</li>
+        <li>inscripciones (opcional)</li>
+      </ul>
+    </td>
+    <td>
+      <strong>✔️ Estudiante</strong><br />
+      <ul>
+        <li>_id</li>
+        <li>nombre</li>
+        <li>email</li>
+        <li>creado_en (opcional)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
