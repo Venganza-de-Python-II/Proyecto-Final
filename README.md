@@ -27,6 +27,10 @@
 - [🚀 Despliegue](docs/despliegue.md)
 - [📝 Requisitos Solicitados / Distribucion](docs/requisitos.md)
 
+## 📸 ScreenShot de la UI
+
+![463499167](https://github.com/user-attachments/assets/c98dd3c0-b2e0-4bfb-989c-7fdc1162c075)
+
 ## 🎯 Cumplimiento de Lineamientos
 
 #### ✅ **Gestión de Talleres de Formación Profesional**
