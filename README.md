@@ -1,3 +1,5 @@
+![463499167-e110a332-88a7-4987-bbe1-ed323f1583e2](https://github.com/user-attachments/assets/76234eda-7a55-46cd-af29-62a72ee0f02d)
+
 # 🔨 SkillsForge - Sistema de Gestión de Talleres
 
 **SkillsForge** es una plataforma integral para la gestión y participación en talleres de formación profesional. Desarrollado con **Next.js** (frontend) y **Flask** (backend) con **MongoDB** como base de datos.
