@@ -1,8 +1,10 @@
+<img width="1454" height="518" alt="image" src="https://github.com/user-attachments/assets/650bde34-dff7-441e-a846-47745b00e48a" />
+
 # Documentación de Base de Datos
 
 ## Resumen
 
-SkillForge utiliza **MongoDB** como base de datos principal, aprovechando su flexibilidad para manejar documentos con estructuras variables y su capacidad de escalamiento horizontal.
+SkillsForge utiliza **MongoDB** como base de datos principal, aprovechando su flexibilidad para manejar documentos con estructuras variables y su capacidad de escalamiento horizontal.
 
 ## Diseño del Esquema
 
@@ -360,3 +362,4 @@ db.createCollection("estudiantes", {
   }
 })
 ```
+
