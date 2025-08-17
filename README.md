@@ -24,7 +24,7 @@
 - [🏗️ Arquitectura](docs/arquitectura.md)
 - [🗄️ Base de Datos](docs/base-de-datos.md)
 - [🔐 Seguridad y Rate Limiting](docs/seguridad-y-rate-limiting.md)
-- [🔌 API Specification](docs/api-specification.md)
+- [🔌 API Documentacion](docs/api-specification.md)
 - [🚀 Despliegue](docs/despliegue.md)
 
 ## 🎯 Cumplimiento de Lineamientos
