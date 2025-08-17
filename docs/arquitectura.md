@@ -349,7 +349,7 @@ logger.error(f"Error en inscripción: {error_message}")
 - Tasa de ocupación promedio
 - Usuarios activos
 
-### 3. Health Checks
+### 3. Health Checks (Verfica el Estado)
 ```python
 @app.get("/health")
 def health_check():
@@ -360,5 +360,3 @@ def health_check():
     except Exception as e:
         return {"status": "unhealthy", "error": str(e)}, 500
 ```
-
-
