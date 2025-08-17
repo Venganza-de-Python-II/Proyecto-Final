@@ -20,12 +20,12 @@
 - [🚀 Despliegue](#-despliegue)
 - [🔧 Solución de Problemas](#-solución-de-problemas)
 - [📑 Documentación Técnica](docs/documentacion-tecnica.md)
-- [📝 Requisitos](docs/requisitos.md)
 - [🏗️ Arquitectura](docs/arquitectura.md)
 - [🗄️ Base de Datos](docs/base-de-datos.md)
 - [🔐 Seguridad y Rate Limiting](docs/seguridad-y-rate-limiting.md)
 - [🔌 API Documentacion](docs/api-specification.md)
 - [🚀 Despliegue](docs/despliegue.md)
+- [📝 Requisitos Solicitados / Distribucion](docs/requisitos.md)
 
 ## 🎯 Cumplimiento de Lineamientos
 
