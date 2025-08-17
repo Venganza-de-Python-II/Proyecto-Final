@@ -4,7 +4,7 @@
 
 ## Resumen
 
-Esta guía cubre el despliegue completo del sistema SkillsForge en diferentes entornos, desde desarrollo local hasta producción, incluyendo configuración de Docker, variables de entorno, y mejores prácticas de seguridad.
+Esta guía cubre el despliegue completo del sistema SkillsForge en diferentes entornos, desde desarrollo local hasta producción, incluyendo configuración de Docker, variables de entorno y mejores prácticas de seguridad.
 
 ## Arquitectura de Despliegue
 
@@ -1006,5 +1006,6 @@ echo "✅ Verificación completada"
 
 
 Este documento proporciona una guía completa para el despliegue de SkillForge en diferentes entornos, desde desarrollo hasta producción, incluyendo todas las mejores prácticas de seguridad, monitoreo y escalabilidad.
+
 
 
