@@ -1,8 +1,10 @@
+<img width="1454" height="518" alt="image" src="https://github.com/user-attachments/assets/289b76af-f1dd-4043-9531-02e54cf813e3" />
+
 # Seguridad y Rate Limiting
 
 ## Descripción General
 
-El sistema ahora incluye medidas de seguridad y protección contra spam mediante rate limiting y validación de headers de autorización.
+El sistema incluye medidas de seguridad y protección contra spam mediante rate limiting y validación de headers de autorización.
 
 ## Funcionalidades Implementadas
 
@@ -121,4 +123,5 @@ if (response.status === 429) {
   "mensaje": "Permisos de administrador requeridos"
 }
 ```
+
 
