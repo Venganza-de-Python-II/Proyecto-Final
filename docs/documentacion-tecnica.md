@@ -241,7 +241,6 @@ talleres-formacion-pro/
 ├── backend/                     # API Flask
 │   ├── app.py                   # Aplicación principal
 │   ├── config.py                # Configuración
-│   ├── test_api.py              # Pruebas unitarias
 │   ├── Dockerfile               # Imagen Docker
 │   └── requirements.txt         # Dependencias Python
 ├── components/                  # Componentes React reutilizables
@@ -252,7 +251,6 @@ talleres-formacion-pro/
 │   ├── navbar.tsx               # Barra de navegación
 │   └── tabla-talleres.tsx       # Lista/grid de talleres
 ├── hooks/                       # Hooks personalizados
-│   ├── use-auth.ts              # Hook de autenticación
 │   └── use-toast.ts             # Hook de notificaciones
 ├── lib/                         # Utilidades y configuración
 │   ├── api.ts                   # Cliente API con rate limiting
@@ -636,5 +634,6 @@ docker-compose logs -f
 
 **Versión**: 1.0.0  
 **Última actualización**: Agosto 2025
+
 
 
