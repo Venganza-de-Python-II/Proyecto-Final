@@ -949,3 +949,22 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 - Radix UI por los componentes accesibles
 - Tailwind CSS por el framework CSS
 - Flask y Next.js por los frameworks base
+
+## Este archivo next.config.mjs es la configuración principal de un proyecto Next.js, escrita en formato ECMAScript Module (.mjs).
+
+### 🧩 Estructura general
+
+
+```bash
+/** @type {import('next').NextConfig} */
+
+```
+Esta línea es una anotación de tipo para TypeScript. Ayuda a los editores como VS Code 
+a ofrecer autocompletado y validación al configurar Next.js.
+
+
+```bash
+const nextConfig = { ... }
+export default nextConfig
+```
+Define y exporta la configuración para que Next.js la utilice al compilar y ejecutar el proyecto.
