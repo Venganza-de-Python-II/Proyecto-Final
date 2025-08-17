@@ -1,0 +1,64 @@
+version: "3.9"
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  api:
+    build:
+      context: ./backend
+    container_name: api-talleres
+    restart: always
+    environment:
+      FLASK_ENV: production
+      JWT_SECRET: supersecreto
+      ADMIN_USER: admin
+      ADMIN_PASSWORD: admin123
+      MONGO_URI: mongodb://admin:admin123@mongo:27017/?authSource=admin
+      MONGO_DB_NAME: talleresdb
+      CORS_ORIGINS: "*"
+      REDIS_URL: redis://redis:6379
+      RATELIMIT_DEFAULT: "100 per hour"
+      API_KEYS: ""
+    depends_on:
+      - mongo
+      - redis
+    ports:
+      # Cambiamos el puerto host a 5001 *El 5000 lo tengo en uso
+      - "5001:5000"
+
+  mongo-express:
+    image: mongo-express:1.0.2-20
+    container_name: mongo-express
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin123
+      ME_CONFIG_MONGODB_URL: mongodb://admin:admin123@mongo:27017/?authSource=admin
+      ME_CONFIG_BASICAUTH: "false"
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:
+  redis_data:
