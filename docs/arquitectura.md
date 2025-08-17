@@ -1,3 +1,5 @@
+<img width="1454" height="518" alt="image" src="https://github.com/user-attachments/assets/c66de7cc-634c-47a0-b773-6514c4ef4e4a" />
+
 # Documentación Técnica - Arquitectura del Sistema
 
 ## Resumen de la Arquitectura
@@ -358,4 +360,5 @@ def health_check():
     except Exception as e:
         return {"status": "unhealthy", "error": str(e)}, 500
 ```
+
 
