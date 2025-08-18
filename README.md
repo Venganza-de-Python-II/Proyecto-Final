@@ -642,7 +642,7 @@ GET /openapi.json
 ## 📁 Estructura del Proyecto
 
 ```
-talleres-formacion-pro/
+proyecto-final/
 ├── app/                          # Páginas Next.js (App Router)
 │   ├── admin/                    # Panel de administración
 │   ├── estudiantes/              # Páginas de estudiantes
