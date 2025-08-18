@@ -1,0 +1,20 @@
+Proyecto de Programación Final
+
+👥 Integrantes del Grupo:
+
+Alec Biruet 
+Aaron Fehrenbach
+Carlos Callejas
+Alonso Pinzon
+Abel Gallardo
+Esteban Dimas
+Verónica Gonzaléz
+Randall Guzman 
+Sofia Navarro
+Daniela Insturaín
+Euris Rodríguez
+Gil Ortiz
+
+👨‍🏫 Profesor:
+
+Abdel Martinez 
