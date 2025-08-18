@@ -4,7 +4,7 @@ SkillsForge - API Backend
 
 API RESTful desarrollada con Flask para la plataforma SkillsForge de gestión 
 de talleres de formación profesional. Incluye autenticación JWT, gestión de 
-usuarios (estudiantes y administradores), y operaciones CRUD completas.
+usuarios (estudiantes y administradores) y operaciones CRUD.
 
 Características principales:
 - Autenticación JWT con refresh tokens
@@ -13,8 +13,8 @@ Características principales:
 - Sistema de inscripciones con validaciones
 - API RESTful
 - Integración con MongoDB y Redis
-- Headers de seguridad automáticos
-- Soporte CORS configurado
+- Headers de seguridad
+- Soporte CORS (Dominios que Tienen Permisos para Acceder a la API)
 """
 
 from flask import Flask, request, jsonify
