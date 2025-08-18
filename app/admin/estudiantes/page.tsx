@@ -1,10 +1,31 @@
-'use client'
+/*Gestión de estudiantes*/
 
-import { useEffect, useState } from 'react'
-import type { Estudiante } from '@/types'
-import { apiFetch, obtenerTokenAdmin } from '@/lib/api'
-import { useRouter } from 'next/navigation'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
+/*
+Verifica si el administrador tiene token, si no lo redirige al login.
+
+Permite buscar estudiantes por nombre o email.
+
+Muestra la lista de estudiantes desde la API.
+
+Permite eliminarlos con confirmación.
+
+Notifica al usuario mediante toasts.
+*/
+
+'use client' //Indica que este componente se ejecuta en el cliente
+
+import { useEffect, useState } from 'react' //hooks de React para manejar estado y efectos secundarios.
+import type { Estudiante } from '@/types' //Llama al código que define un estudiante.
+import { apiFetch, obtenerTokenAdmin } from '@/lib/api' //función personalizada para hacer peticiones a la API. y obtiene el token de autenticación del administrador.
+import { useRouter } from 'next/navigation' //hook de Next.js para redirigir.
+
+/*
+  Se importan componentes de UI (Cards, Botones, Input).
+  Iconos de Lucide React (Trash2, Search).
+  useToast y Toaster → sistema de notificaciones emergentes.
+  Navbar → barra de navegación reutilizable.
+*/
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card' 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Trash2, Search } from 'lucide-react'
@@ -13,14 +34,16 @@ import { Toaster } from '@/components/ui/toaster'
 import Link from 'next/link'
 import { Navbar } from '@/components/navbar'
 
+//Componente principal que renderiza la interfaz de administración de estudiantes.
 export default function GestionEstudiantes() {
-  const [lista, setLista] = useState<Estudiante[]>([])
-  const [q, setQ] = useState('')
-  const [cargando, setCargando] = useState(true)
-  const token = obtenerTokenAdmin()
-  const router = useRouter()
-  const { toast } = useToast()
+  const [lista, setLista] = useState<Estudiante[]>([]) //lista de estudiantes obtenidos de la API.
+  const [q, setQ] = useState('') //cadena de búsqueda (nombre/email).
+  const [cargando, setCargando] = useState(true) //bandera de estado para mostrar “Cargando…”.
+  const token = obtenerTokenAdmin() //token de autenticación del administrador.
+  const router = useRouter() //navegación programática (redirigir).
+  const { toast } = useToast() //mostrar notificaciones.
 
+  //useEffect (control de acceso + carga de datos)
   useEffect(() => {
     if (!token) {
       router.replace('/admin/login')
@@ -28,7 +51,13 @@ export default function GestionEstudiantes() {
     }
     cargar()
   }, [token, q])
+/*
+  Si no hay token, se redirige al login de admin.
+  Cada vez que cambie el token o el término de búsqueda (q), se ejecuta cargar().
+*/
 
+
+  //Función para obtener estudiantes
   async function cargar() {
     setCargando(true)
     try {
@@ -45,7 +74,14 @@ export default function GestionEstudiantes() {
       setCargando(false)
     }
   }
+/*
+  Muestra estado de cargando.
+  Llama a la API /students con un parámetro de búsqueda opcional.
+  Actualiza el estado lista con los estudiantes obtenidos.
+  En caso de error, muestra un toast de error.
+*/
 
+  //Función para eliminar estudiantes
   async function eliminar(id: string) {
     if (!confirm('¿Eliminar estudiante y sus inscripciones?')) return
     try {
@@ -60,10 +96,17 @@ export default function GestionEstudiantes() {
       })
     }
   }
+/*
+  Pide confirmación al usuario.
+  Llama a la API para borrar el estudiante.
+  Actualiza la lista local eliminando al estudiante borrado.
+  Muestra un toast de éxito o error.
+*/
 
+  //Renderizado de la interfaz jsx
   return (
     <div className="min-h-screen bg-[#0b0e13] text-white">
-      <Navbar />
+      <Navbar /> {/*Fondo oscuro, texto blanco, incluye la barra de navegación.*/}
       <section className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between">
           <div>
@@ -75,6 +118,7 @@ export default function GestionEstudiantes() {
             </Link>
         </div>
 
+        {/*Busqueda de esyudiantes*/}
         <Card className="mt-6 bg-white/5 border-white/10">
           <CardHeader>
             <CardTitle className="text-white">Buscar Estudiantes</CardTitle>
@@ -102,7 +146,15 @@ export default function GestionEstudiantes() {
             </div>
           </CardContent>
         </Card>
+        {/*
+          Permite buscar estudiantes por nombre o correo.
+  
+          El campo está enlazado con el estado q.
+          
+          El botón ejecuta cargar().
+        */}
 
+        {/*Lista de estudiantes*/}
         <Card className="mt-6 bg-white/5 border-white/10">
           <CardHeader>
             <CardTitle className="text-white">Lista de Estudiantes</CardTitle>
@@ -135,6 +187,14 @@ export default function GestionEstudiantes() {
             )}
           </CardContent>
         </Card>
+        {/*
+          Muestra el estado de carga, lista vacía o estudiantes.
+          Cada estudiante muestra:
+          Nombre y correo.
+          Botón para eliminar.
+        */}
+
+        {/*Renderiza los mensajes emergentes de éxito/error.*/
       </section>
       {/* Toast del portal */}
       <Toaster />
