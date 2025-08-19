@@ -16,7 +16,7 @@ Notifica al usuario mediante toasts.
 
 import { useEffect, useState } from 'react' //hooks de React para manejar estado y efectos secundarios.
 import type { Estudiante } from '@/types' //Llama al código que define un estudiante.
-import { apiFetch, obtenerTokenAdmin } from '@/lib/api' //función personalizada para hacer peticiones a la API. y obtiene el token de autenticación del administrador.
+import { apiFetch, obtenerTokenAdmin } from '@/lib/api' //función personalizada conecta front con back. y obtiene el token de autenticación para el admin logeado.
 import { useRouter } from 'next/navigation' //hook de Next.js para redirigir.
 
 /*
@@ -36,14 +36,19 @@ import { Navbar } from '@/components/navbar'
 
 //Componente principal que renderiza la interfaz de administración de estudiantes.
 export default function GestionEstudiantes() {
-  const [lista, setLista] = useState<Estudiante[]>([]) //lista de estudiantes obtenidos de la API.
-  const [q, setQ] = useState('') //cadena de búsqueda (nombre/email).
-  const [cargando, setCargando] = useState(true) //bandera de estado para mostrar “Cargando…”.
-  const token = obtenerTokenAdmin() //token de autenticación del administrador.
-  const router = useRouter() //navegación programática (redirigir).
+  const [lista, setLista] = useState<Estudiante[]>([]) //lista de estudiantes obtenidos de la API (inicia vacía).
+  const [q, setQ] = useState('') //cadena de búsqueda query (inicia vacía).
+  const [cargando, setCargando] = useState(true) //bandera de estado para mostrar “Cargando…”. 
+  const token = obtenerTokenAdmin() //revisa si el admin está logueado.
+  const router = useRouter() //navegación redigirida /cambiar de página (ej: redirigir al login)..
   const { toast } = useToast() //mostrar notificaciones.
 
-  //useEffect (control de acceso + carga de datos)
+  //useEffect (verifica existencia de token y carga el query)
+  /*
+ Se verifica el token con obtenerTokenAdmin().
+  Si no hay, se redirige a /admin/login.
+  Si existe, se llama a cargar() para traer estudiantes desde el backend.
+*/
   useEffect(() => {
     if (!token) {
       router.replace('/admin/login')
@@ -51,18 +56,23 @@ export default function GestionEstudiantes() {
     }
     cargar()
   }, [token, q])
-/*
-  Si no hay token, se redirige al login de admin.
-  Cada vez que cambie el token o el término de búsqueda (q), se ejecuta cargar().
-*/
 
 
   //Función para obtener estudiantes
+/*
+  Muestra estado de cargando.
+  Llama a la API /students con un parámetro de búsqueda opcional.
+  Actualiza el estado lista con los estudiantes obtenidos.
+  En caso de error, muestra un toast de error.
+*/
   async function cargar() {
-    setCargando(true)
+    setCargando(true) //Inicializa la función para el ususario.
     try {
-      const params = q ? `?q=${encodeURIComponent(q)}` : ''
+      //Si hay algo escrito en el buscador (q), lo mete en una cajita especial (params) para pedir estudiantes específicos.
+      const params = q ? `?q=${encodeURIComponent(q)}` : '' 
+      //Hace solicitud al backend con el parametro del estudiante y el token del admin
       const data = await apiFetch(`/students${params}`, { token })
+      //Si todo sale bien, coloca los estudiantes recibidos (data) en la nueva lista.
       setLista(data)
     } catch (e: any) {
       toast({
@@ -71,23 +81,27 @@ export default function GestionEstudiantes() {
         variant: 'destructive'
       })
     } finally {
+      //finaliza la función para el ususario.
       setCargando(false)
     }
   }
-/*
-  Muestra estado de cargando.
-  Llama a la API /students con un parámetro de búsqueda opcional.
-  Actualiza el estado lista con los estudiantes obtenidos.
-  En caso de error, muestra un toast de error.
-*/
 
   //Función para eliminar estudiantes
+  /*
+  Pide confirmación al usuario.
+  Llama a la API para borrar el estudiante.
+  Actualiza la lista local eliminando al estudiante borrado.
+  Muestra un toast de éxito o error.
+*/
   async function eliminar(id: string) {
     if (!confirm('¿Eliminar estudiante y sus inscripciones?')) return
     try {
+      //Llama al backend para borrar, tomando el id del estudiante y verificando el token del admin
       await apiFetch(`/students/${id}`, { metodo: 'DELETE', token })
+      //Actualiza la lista LOCAL, borrando al estudiante que coincida con el id (sin recargar la página)
       setLista(prev => prev.filter(x => x._id !== id))
       toast({ title: 'Estudiante eliminado', description: 'La acción se realizó correctamente.' })
+      //Manejo de errores
     } catch (e: any) {
       toast({
         title: 'No se pudo eliminar',
@@ -96,17 +110,14 @@ export default function GestionEstudiantes() {
       })
     }
   }
-/*
-  Pide confirmación al usuario.
-  Llama a la API para borrar el estudiante.
-  Actualiza la lista local eliminando al estudiante borrado.
-  Muestra un toast de éxito o error.
-*/
 
+  
   //Renderizado de la interfaz jsx
   return (
+    {/*Este bloque de código construye la interfaz visual de la página de "Gestión de Estudiantes" para administradores. */}
+    {/*Fondo oscuro, texto blanco, incluye la barra de navegación.*/}
     <div className="min-h-screen bg-[#0b0e13] text-white">
-      <Navbar /> {/*Fondo oscuro, texto blanco, incluye la barra de navegación.*/}
+      <Navbar /> 
       <section className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between">
           <div>
@@ -119,6 +130,11 @@ export default function GestionEstudiantes() {
         </div>
 
         {/*Busqueda de esyudiantes*/}
+        {/*
+            Muestra un cuadro de búsqueda donde el admin puede escribir nombres o emails de estudiantes.
+            Incluye un botón "Buscar" para aplicar el filtro.
+            Actualiza la lista automáticamente cuando se busca (usando el estado q y la función cargar).
+        */}
         <Card className="mt-6 bg-white/5 border-white/10">
           <CardHeader>
             <CardTitle className="text-white">Buscar Estudiantes</CardTitle>
@@ -146,15 +162,18 @@ export default function GestionEstudiantes() {
             </div>
           </CardContent>
         </Card>
-        {/*
-          Permite buscar estudiantes por nombre o correo.
-  
-          El campo está enlazado con el estado q.
-          
-          El botón ejecuta cargar().
-        */}
+        
 
         {/*Lista de estudiantes*/}
+        {/*
+         Muestra una lista de estudiantes (nombre y email).
+          Incluye un botón "Eliminar" para cada estudiante.
+          
+          Gestiona tres estados posibles:
+           -Cargando datos (cargando).
+           -Lista vacía (lista.length === 0)
+           -Lista con resultados.
+        */}
         <Card className="mt-6 bg-white/5 border-white/10">
           <CardHeader>
             <CardTitle className="text-white">Lista de Estudiantes</CardTitle>
@@ -187,17 +206,14 @@ export default function GestionEstudiantes() {
             )}
           </CardContent>
         </Card>
-        {/*
-          Muestra el estado de carga, lista vacía o estudiantes.
-          Cada estudiante muestra:
-          Nombre y correo.
-          Botón para eliminar.
-        */}
+        
 
-        {/*Renderiza los mensajes emergentes de éxito/error.*/
+        {/*Renderiza los mensajes emergentes.*/}
       </section>
       {/* Toast del portal */}
       <Toaster />
     </div>
   )
 }
+
+
